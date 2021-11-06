@@ -14,3 +14,19 @@ recognition.onresult = function run (event) {
     var content = event.results[0][0].transcript;
     document.getElementById("textbox").innerHTML = content;
 }
+
+function speak() {
+    var synth = window.speechSynthesis;
+    speak_data = document.getElementById("textbox").value;
+    var utterThis = new SpeechSynthesisUtterance(speak_data);
+    synth.speak(utterThis);
+    Webcam.attach(camera);
+}
+Webcam.set({
+    width : 360,
+    heigth : 250,
+    image_format : 'png',
+    png_quality = 90
+});
+
+camera = document.getElementById("camera");
